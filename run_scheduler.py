@@ -2,10 +2,13 @@ import schedule
 import time
 from crawler import run_crawler
 
+from export_csv import export_to_csv
+
 def job():
-    print("🕒 开始抓取并写入百度热搜 + 导出 CSV...")
+    print("🕐 开始抓取 + 写入数据库 + 导出 CSV...")
     run_crawler()
-    print("✅ 抓取与导出完成。\n")
+    export_to_csv()
+    print("✅ 全部任务完成。\n")
 
 # 每小时执行一次任务
 schedule.every().hour.do(job)
